@@ -18,3 +18,15 @@ keys.forEach((key) => {
     key.classList.remove('active-sound');
   });
 });
+
+keys.forEach((key) => {
+  key.addEventListener('click', (e) => {
+    let dataKey = key.getAttribute('data-key');
+
+    let audio = document.querySelector(`audio[data-key="${dataKey}"]`);
+    console.log(audio);
+    audio.currentTime = 0;
+    audio.play();
+    key.classList.add('active-sound');
+  });
+});
